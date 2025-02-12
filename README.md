@@ -1,22 +1,21 @@
-# github-actions-composite-template
+# split-files
 
-[![version](https://badgen.net/github/release/remarkablemark/github-actions-composite-template)](https://github.com/remarkablemark/github-actions-composite-template/releases)
-[![test](https://github.com/remarkablemark/github-actions-composite-template/actions/workflows/test.yml/badge.svg)](https://github.com/remarkablemark/github-actions-composite-template/actions/workflows/test.yml)
+[![version](https://badgen.net/github/release/remarkablemark/split-files)](https://github.com/remarkablemark/split-files/releases)
+[![test](https://github.com/remarkablemark/split-files/actions/workflows/test.yml/badge.svg)](https://github.com/remarkablemark/split-files/actions/workflows/test.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-⚙️ GitHub Actions Composite Template. Inspired by [remarkablemark/hello-world-composite-action](https://github.com/remarkablemark/hello-world-composite-action).
+✂️ Split files with GitHub Actions.
 
 ## Quick Start
 
 ```yaml
-# .github/workflows/github-actions-composite-template.yml
 on: push
 jobs:
-  github-actions-composite-template:
+  split-files:
     runs-on: ubuntu-latest
     steps:
-      - name: GitHub Actions Composite Template
-        uses: remarkablemark/github-actions-composite-template@v1
+      - name: Split Files
+        uses: remarkablemark/split-files@v1
 ```
 
 ## Usage
@@ -26,7 +25,7 @@ See [action.yml](action.yml)
 **Basic:**
 
 ```yaml
-- uses: remarkablemark/github-actions-composite-template@v1
+- uses: remarkablemark/split-files@v1
 ```
 
 ## Inputs
@@ -36,7 +35,7 @@ See [action.yml](action.yml)
 **Optional**: The version. Defaults to `1.2.3`:
 
 ```yaml
-- uses: remarkablemark/github-actions-composite-template@v1
+- uses: remarkablemark/split-files@v1
   with:
     version: 1.2.3
 ```

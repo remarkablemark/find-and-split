@@ -1,5 +1,5 @@
-name: github-actions-composite-template
-description: GitHub Actions Composite Template
+name: split-files
+description: Split files with GitHub Actions.
 author: remarkablemark
 inputs:
   version:
