@@ -1,5 +1,5 @@
-name: split-files
-description: Find files and split list with GitHub Actions.
+name: find-and-split
+description: Find and split files with GitHub Actions.
 author: remarkablemark
 
 inputs:
