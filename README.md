@@ -55,7 +55,7 @@ See [action.yml](action.yml)
 ```
 
 > [!NOTE]
-> The chunk total limit is 256 because that's the maximum jobs per workflow run.
+> The chunk limit is 256 because that's the maximum jobs per workflow run.
 
 ### `pattern`
 
