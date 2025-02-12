@@ -1,17 +1,54 @@
 name: split-files
-description: Split files with GitHub Actions.
+description: Find files and split list with GitHub Actions.
 author: remarkablemark
+
 inputs:
-  version:
-    description: Description
-    default: 1.2.3
+  chunk:
+    description: The chunk as a fraction (e.g., 1/2).
+    required: true
+  pattern:
+    description: 'The filename pattern (e.g., *.txt).'
+    required: true
+  directory:
+    description: The directory.
+    default: .
+  delimiter:
+    description: The delimiter.
+    default: ' '
+
+outputs:
+  files:
+    description: The list of files.
+    value: ${{ steps.find-and-split.outputs.files }}
+
 runs:
   using: composite
   steps:
-    - name: Print version
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Find and split files
+      id: find-and-split
       shell: bash
       run: |
-        echo 'version: ${{ inputs.version }}'
+        CHUNK_NUMBER=$(echo ${{ inputs.chunk }} | cut -d/ -f1)
+        CHUNK_INDEX=$((CHUNK_NUMBER - 1))
+        CHUNK_TOTAL=$(echo ${{ inputs.chunk }} | cut -d/ -f2)
+        PREFIX=find_and_split_${{ github.run_id }}_
+        FILE=$RUNNER_TEMP/$PREFIX
+
+        find ${{ inputs.directory }} -type f -name ${{ inputs.pattern }} > $FILE
+
+        FILES_TOTAL=$(wc -l < $FILE)
+        LINES=$(( (FILES_TOTAL + 1) / CHUNK_TOTAL ))
+        MAX_DIGITS=3
+
+        cd $RUNNER_TEMP
+        split -d -a $MAX_DIGITS -l $LINES $FILE $PREFIX
+
+        FILES="$(cat "$PREFIX$(printf "%0${MAX_DIGITS}d" $CHUNK_INDEX)" | tr '\n' '${{ inputs.delimiter }}')"
+        echo "files=$FILES" >> $GITHUB_OUTPUT
+
 branding:
   icon: activity
   color: white
