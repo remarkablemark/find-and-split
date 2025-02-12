@@ -50,5 +50,5 @@ runs:
         echo "files=$FILES" >> $GITHUB_OUTPUT
 
 branding:
-  icon: activity
-  color: white
+  icon: scissors
+  color: yellow
