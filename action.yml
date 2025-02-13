@@ -6,15 +6,15 @@ inputs:
   chunk:
     description: The chunk as a fraction (e.g., 1/2).
     required: true
-  pattern:
-    description: 'The filename pattern (e.g., *.txt).'
-    required: true
-  directory:
-    description: The directory.
-    default: .
   delimiter:
     description: The delimiter.
     default: ' '
+  directory:
+    description: The directory.
+    default: .
+  pattern:
+    description: 'The filename pattern (e.g., *.txt).'
+    required: true
 
 outputs:
   files:
@@ -46,8 +46,14 @@ runs:
         cd $RUNNER_TEMP
         split -d -a $MAX_DIGITS -l $LINES $FILE $PREFIX
 
-        FILES="$(cat "$PREFIX$(printf "%0${MAX_DIGITS}d" $CHUNK_INDEX)" | tr '\n' '${{ inputs.delimiter }}')"
-        echo "files=$FILES" >> $GITHUB_OUTPUT
+        FILES=$(tr '\n' '${{ inputs.delimiter }}' < "$PREFIX$(printf "%0${MAX_DIGITS}d" $CHUNK_INDEX)")
+        EOF=EOF_FIND_AND_SPLIT_$(openssl rand -hex 12)
+
+        {
+          echo "files<<$EOF"
+          echo "$FILES"
+          echo $EOF
+        } >> "$GITHUB_OUTPUT"
 
 branding:
   icon: scissors
