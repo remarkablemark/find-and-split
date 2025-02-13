@@ -37,7 +37,7 @@ runs:
         PREFIX=find_and_split_${{ github.run_id }}_
         FILE=$RUNNER_TEMP/$PREFIX
 
-        find ${{ inputs.directory }} -type f -name ${{ inputs.pattern }} > $FILE
+        find ${{ inputs.directory }} -type f -name ${{ inputs.pattern }} | sort > $FILE
 
         FILES_TOTAL=$(wc -l < $FILE)
         LINES=$(( (FILES_TOTAL + 1) / CHUNK_TOTAL ))

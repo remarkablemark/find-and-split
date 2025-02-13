@@ -22,7 +22,7 @@ jobs:
       - name: Assert files (1/2)
         shell: bash
         run: |
-          if [[ '${{ steps.test1.outputs.files }}' != ./test/[1-3].spec[[:space:]]./test/[1-3].spec[[:space:]] ]]; then
+          if [[ '${{ steps.test1.outputs.files }}' != './test/1.spec ./test/2.spec ' ]]; then
             echo 'Files do not match'
             exit 1
           fi
@@ -38,7 +38,7 @@ jobs:
       - name: Assert files (2/2)
         shell: bash
         run: |
-          if [[ '${{ steps.test2.outputs.files }}' != test/[1-3].spec[[:space:]] ]]; then
+          if [[ '${{ steps.test2.outputs.files }}' != 'test/3.spec ' ]]; then
             echo 'Files do not match'
             exit 1
           fi
