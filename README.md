@@ -31,16 +31,16 @@ jobs:
 
 ## Usage
 
-See [action.yml](action.yml)
-
-**Basic:**
+Find half of the files matching `*.txt` in alphabetical order:
 
 ```yaml
 - uses: remarkablemark/find-and-split@v1
   with:
     pattern: '*.txt'
-    chunk: 1/3
+    chunk: 1/2
 ```
+
+See [action.yml](action.yml)
 
 ## Inputs
 
