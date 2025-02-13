@@ -108,6 +108,10 @@ The list of files. For example:
 ./test/1.spec ./test/2.spec
 ```
 
+## Examples
+
+- [cypress-cucumber-steps](https://github.com/remarkablemark/cypress-cucumber-steps/blob/master/.github/workflows/cypress.yml)
+
 ## License
 
 [MIT](LICENSE)
