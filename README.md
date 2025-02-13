@@ -90,11 +90,23 @@ See [action.yml](action.yml)
     delimiter: ' '
 ```
 
+Set `\n` for multiline file strings:
+
+```yaml
+- uses: remarkablemark/find-and-split@v1
+  with:
+    delimiter: '\n'
+```
+
 ## Outputs
 
 ### `files`
 
-The list of files.
+The list of files. For example:
+
+```
+./test/1.spec ./test/2.spec
+```
 
 ## License
 
