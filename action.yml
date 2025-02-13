@@ -6,15 +6,15 @@ inputs:
   chunk:
     description: The chunk as a fraction (e.g., 1/2).
     required: true
-  pattern:
-    description: 'The filename pattern (e.g., *.txt).'
-    required: true
-  directory:
-    description: The directory.
-    default: .
   delimiter:
     description: The delimiter.
     default: ' '
+  directory:
+    description: The directory.
+    default: .
+  pattern:
+    description: 'The filename pattern (e.g., *.txt).'
+    required: true
 
 outputs:
   files:
