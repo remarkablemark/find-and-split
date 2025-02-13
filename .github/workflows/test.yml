@@ -16,13 +16,15 @@ jobs:
         uses: ./
         id: test1
         with:
-          pattern: '*.spec'
           chunk: 1/2
+          pattern: '*.spec'
 
       - name: Assert files (1/2)
         shell: bash
         run: |
-          if [[ '${{ steps.test1.outputs.files }}' != './test/1.spec ./test/2.spec ' ]]; then
+          actual='${{ steps.test1.outputs.files }}'
+          expected='./test/1.spec ./test/2.spec '
+          if [[ "$actual" != "$expected" ]]; then
             echo 'Files do not match'
             exit 1
           fi
@@ -31,14 +33,42 @@ jobs:
         uses: ./
         id: test2
         with:
+          chunk: 2/2
           directory: test
           pattern: '*.spec'
-          chunk: 2/2
 
-      - name: Assert files (2/2)
+      - name: Assert files with directory (2/2)
         shell: bash
         run: |
-          if [[ '${{ steps.test2.outputs.files }}' != 'test/3.spec ' ]]; then
+          actual='${{ steps.test2.outputs.files }}'
+          expected='test/3.spec '
+          if [[ "$actual" != "$expected" ]]; then
             echo 'Files do not match'
+            exit 1
+          fi
+
+      - name: Find and split with delimiter (1/2)
+        uses: ./
+        id: test3
+        with:
+          chunk: 1/2
+          delimiter: '\n'
+          directory: test
+          pattern: '*.spec'
+
+      - name: Assert files with delimiter (1/2)
+        shell: bash
+        run: |
+          cat <<EOF > actual
+          ${{ steps.test3.outputs.files }}
+          EOF
+
+          cat <<EOF > expected
+          test/1.spec
+          test/2.spec
+          EOF
+
+          if ! cmp actual expected; then
+            diff actual expected
             exit 1
           fi
