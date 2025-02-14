@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/remarkablemark/find-and-split/compare/v1.0.3...v1.0.4) (2025-02-14)
+
+
+### Bug Fixes
+
+* **action:** remove checkout repository step ([e2e6f5f](https://github.com/remarkablemark/find-and-split/commit/e2e6f5fb044c1860678d12430efdc2099e117f1d))
+
 ## [1.0.3](https://github.com/remarkablemark/find-and-split/compare/v1.0.2...v1.0.3) (2025-02-14)
 
 
