@@ -62,8 +62,6 @@ runs:
           echo $EOF
         } >> "$GITHUB_OUTPUT"
 
-        cd -
-
 branding:
   icon: scissors
   color: yellow
