@@ -16,7 +16,6 @@ jobs:
         uses: ./
         with:
           chunk: 0/1
-          directory: invalid
           pattern: '*.invalid'
         continue-on-error: true
 
