@@ -12,6 +12,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Find and split (0/1)
+        uses: ./
+        with:
+          chunk: 0/1
+          pattern: '*.invalid'
+        continue-on-error: true
+
       - name: Find and split (1/2)
         uses: ./
         id: test1
