@@ -111,6 +111,7 @@ The list of files. For example:
 ## Examples
 
 - [cypress-cucumber-steps](https://github.com/remarkablemark/cypress-cucumber-steps/blob/master/.github/workflows/cypress.yml)
+- [phpunit-test-sharding](https://github.com/remarkablemark/phpunit-test-sharding)
 
 ## License
 
