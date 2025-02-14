@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.3](https://github.com/remarkablemark/find-and-split/compare/v1.0.2...v1.0.3) (2025-02-14)
+
+
+### Bug Fixes
+
+* **action:** change back to previous directory at the end ([19fde8c](https://github.com/remarkablemark/find-and-split/commit/19fde8c69c45a7f0c3fb6390d6ac04d3b81a7729))
+* **action:** show error message when no files are found ([2032c38](https://github.com/remarkablemark/find-and-split/commit/2032c38ade6ba98c0518de578fda35e76b711772))
+
 ## [1.0.2](https://github.com/remarkablemark/find-and-split/compare/v1.0.1...v1.0.2) (2025-02-13)
 
 
