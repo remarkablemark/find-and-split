@@ -82,7 +82,7 @@ See [action.yml](action.yml)
 
 ### `delimiter`
 
-**Optional**: The delimiter. Defaults to a single space.
+**Optional**: The delimiter. Defaults to a space.
 
 ```yaml
 - uses: remarkablemark/find-and-split@v1
@@ -106,6 +106,13 @@ The list of files. For example:
 
 ```
 ./test/1.spec ./test/2.spec
+```
+
+With `delimiter: '\n'`, the output will be:
+
+```
+./test/1.spec
+./test/2.spec
 ```
 
 ## Examples
