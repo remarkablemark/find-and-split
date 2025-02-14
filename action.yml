@@ -39,9 +39,14 @@ runs:
 
         find ${{ inputs.directory }} -type f -name ${{ inputs.pattern }} | sort > $FILE
 
-        FILES_TOTAL=$(wc -l < $FILE)
+        FILES_TOTAL=$(wc -l < $FILE | xargs)
         LINES=$(( (FILES_TOTAL + 1) / CHUNK_TOTAL ))
         MAX_DIGITS=3
+
+        if [[ $FILES_TOTAL == 0 ]]; then
+          echo 'No files found. Check your inputs: pattern = "${{ inputs.pattern }}", directory = "${{ inputs.directory }}"'
+          exit 1
+        fi
 
         cd $RUNNER_TEMP
         split -d -a $MAX_DIGITS -l $LINES $FILE $PREFIX
