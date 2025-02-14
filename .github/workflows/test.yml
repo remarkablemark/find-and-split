@@ -9,9 +9,6 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Find and split (0/1)
         uses: ./
         with:
