@@ -4,7 +4,7 @@
 [![test](https://github.com/remarkablemark/find-and-split/actions/workflows/test.yml/badge.svg)](https://github.com/remarkablemark/find-and-split/actions/workflows/test.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-✂️ Find and split files with GitHub Actions.
+✂️ GitHub Action to find and split files.
 
 ## Quick Start
 
