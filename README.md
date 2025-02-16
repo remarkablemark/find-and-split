@@ -92,7 +92,7 @@ See [action.yml](action.yml)
     delimiter: ' '
 ```
 
-Set `\n` for multiline file strings:
+Set the delimiter to `\n` for multiline files:
 
 ```yaml
 - uses: remarkablemark/find-and-split@v1
