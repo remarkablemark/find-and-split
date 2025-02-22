@@ -18,15 +18,18 @@ jobs:
     strategy:
       matrix:
         chunk: [1/2, 2/2]
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
       - name: Find and split files
         uses: remarkablemark/find-and-split@v1
         id: my-files
         with:
           pattern: '*.txt'
           chunk: ${{ matrix.chunk }}
+
       - name: Print files
         run: echo ${{ steps.my-files.outputs.files }}
 ```
