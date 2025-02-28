@@ -57,7 +57,7 @@ runs:
           echo "files<<$EOF"
           echo "$FILES"
           echo $EOF
-        } >> "$GITHUB_OUTPUT"
+        } >> $GITHUB_OUTPUT
 
 branding:
   icon: scissors
